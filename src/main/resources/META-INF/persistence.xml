@@ -1,0 +1,55 @@
+<?xml version="1.0"  encoding="UTF-8"?>
+<persistence
+        xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+        version="2.2">
+
+    <persistence-unit name="meetup-create" transaction-type="RESOURCE_LOCAL">
+        <!-- Provider : la classe fourni par l'API en charge de la persistence -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+
+            <!-- Parametrage de notre base de donnée -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/meetup"/>
+            <property name="javax.persistence.jdbc.user"
+                      value="laravel"/>
+            <property name="javax.persistence.jdbc.password"
+                      value="laravel"/>
+
+            <!-- validate | update | create | create-drop -->
+            <property name="hibernate.hbm2ddl.auto" value="create"/>
+            <!-- Propriété sup facilitant l'affichage console pour le debug -->
+<!--            <property name="hibernate.show_sql" value="true"/>-->
+<!--            <property name="hibernate.format_sql" value="true"/>-->
+<!--            <property name="hibernate.use_sql_comments" value="true"/>-->
+        </properties>
+    </persistence-unit>
+    <persistence-unit name="meetup-validate" transaction-type="RESOURCE_LOCAL">
+        <!-- Provider : la classe fourni par l'API en charge de la persistence -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+
+            <!-- Parametrage de notre base de donnée -->
+            <property name="javax.persistence.jdbc.driver"
+                      value="com.mysql.jdbc.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:mysql://localhost:3306/meetup"/>
+            <property name="javax.persistence.jdbc.user"
+                      value="laravel"/>
+            <property name="javax.persistence.jdbc.password"
+                      value="laravel"/>
+
+            <!-- validate | update | create | create-drop -->
+            <property name="hibernate.hbm2ddl.auto" value="validate"/>
+            <!-- Propriété sup facilitant l'affichage console pour le debug -->
+            <!--<property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>
